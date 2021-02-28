@@ -1,17 +1,15 @@
 import { REARRANGE_PODS } from 'reducers/actionTypes';
 import INITIAL_STATE from 'reducers/initialData';
+import { singleColumnRearrange } from 'utilities/reducerUtils';
 
 function rootReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case REARRANGE_PODS:
-      const sourceCol = state.columns[action.payload.source.droppableId];
-      const destinationCol = state.columns[action.payload.destination.droppableId];
-      if(sourceCol === destinationCol) {
-        console.log(sourceCol)
-      }
-      return {
-        ...state,
-      }
+      const { source, destination } = action.payload;
+      if (source.droppableId === destination.droppableId) {
+        console.log("here")
+        return singleColumnRearrange(action, state);
+      };
     default:
       return state;
   };

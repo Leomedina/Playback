@@ -6,12 +6,12 @@ const INITIAL_STATE = {
   },
   columns: {
     'available': {
-      id: 'col-0',
+      id: 'available',
       name: 'Available',
       podcastIds: ["pod-0", "pod-1"]
     },
     'savedQueue': {
-      id: 'col-1',
+      id: 'savedQueue',
       name: 'Queue',
       podcastIds: ["pod-2"]
     }
