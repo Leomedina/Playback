@@ -1,17 +1,19 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { useSelector } from 'react-redux';
 import Playlist from 'components/Playlist';
+import { rearrangePods } from 'reducers/actions';
 
 function Index() {
   const { available, savedQueue } = useSelector(store => store.columns);
-  
+  const dispatch = useDispatch();
+
   const onDragEnd = result => {
-    const { destination, source, draggableId } = result;
+    const { draggableId, source, destination } = result;
     if (!destination) return;
     if (destination.droppableId === source.droppableId &&
       destination.index === source.index) return;
-    
+    dispatch(rearrangePods(draggableId, source, destination));
   };
 
   return (

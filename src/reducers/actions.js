@@ -1,13 +1,12 @@
-import { DEFAULT, REARRANGE_PODS } from 'actionTypes';
+import { DEFAULT, REARRANGE_PODS } from 'reducers/actionTypes';
 
-export const rearrangePods = function (podId, column, destinationIdx, sourceIdx,) {
+export const rearrangePods = function (podId, source, destination) {
   return {
     type: REARRANGE_PODS,
     payload: {
       podId,
-      column,
-      destinationIdx,
-      sourceIdx
+      source,
+      destination
     }
   };
 };
