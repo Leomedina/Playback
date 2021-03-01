@@ -1,6 +1,6 @@
 // Utilities for Root Reducer
 
-export function singleColumnRearrange(action, state) {
+export const singleColumnRearrange = (action, state) => {
   const { podId, source, destination } = action.payload;
   const sourceCol = state.columns[source.droppableId];
   const newList = Array.from(sourceCol.podcastIds);
@@ -10,7 +10,7 @@ export function singleColumnRearrange(action, state) {
   newList.splice(destination.index, 0, podId);
 
   newColumn = { ...sourceCol, podcastIds: newList };
-  
+
   return {
     ...state,
     columns: {
@@ -19,4 +19,3 @@ export function singleColumnRearrange(action, state) {
     }
   };
 };
-

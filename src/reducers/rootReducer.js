@@ -6,10 +6,9 @@ function rootReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case REARRANGE_PODS:
       const { source, destination } = action.payload;
-      if (source.droppableId === destination.droppableId) {
-        console.log("here")
+      if (source.droppableId === destination.droppableId)
         return singleColumnRearrange(action, state);
-      };
+      return state;
     default:
       return state;
   };
