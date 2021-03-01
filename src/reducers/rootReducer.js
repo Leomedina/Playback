@@ -1,6 +1,6 @@
 import { REARRANGE_PODS } from 'reducers/actionTypes';
 import INITIAL_STATE from 'reducers/initialData';
-import { singleColumnRearrange } from 'utilities/reducerUtils';
+import { singleColumnRearrange, multipleColumnRearrange } from 'utilities/reducerUtils';
 
 function rootReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -8,7 +8,8 @@ function rootReducer(state = INITIAL_STATE, action) {
       const { source, destination } = action.payload;
       if (source.droppableId === destination.droppableId)
         return singleColumnRearrange(action, state);
-      return state;
+      else 
+        return multipleColumnRearrange(action, state);
     default:
       return state;
   };
