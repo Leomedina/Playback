@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Playlist from 'components/Playlist';
-import { rearrangePods } from 'reducers/actions';
+import { rearrangePods, getPodsFromAPI } from 'reducers/actions';
 
 function Index() {
   const { available, savedQueue } = useSelector(store => store.columns);
+  const { podcasts } = useSelector(store => store);
   const dispatch = useDispatch();
 
+  //Get Pods from API on mount
+  useEffect(() => {
+    dispatch(getPodsFromAPI());
+  }, [dispatch]);
+
+
+  //Handle Drag and Drop
   const onDragEnd = result => {
     const { draggableId, source, destination } = result;
     if (!destination) return;
@@ -21,10 +29,12 @@ function Index() {
       <div className="App p-12 h-screen bg-gray-300 lg:flex">
         <Playlist
           color="blue"
-          meta={available} />
+          meta={available}
+          podcasts={podcasts} />
         <Playlist
           color="red"
-          meta={savedQueue} />
+          meta={savedQueue}
+          podcasts={podcasts} />
       </div>
     </DragDropContext>
   );

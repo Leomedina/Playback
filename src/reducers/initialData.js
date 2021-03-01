@@ -8,12 +8,12 @@ const INITIAL_STATE = {
     'available': {
       id: 'available',
       name: 'Available',
-      podcastIds: ["pod-0", "pod-1"]
+      podcastIds: new Set()
     },
     'savedQueue': {
       id: 'savedQueue',
       name: 'Queue',
-      podcastIds: ["pod-2"]
+      podcastIds: new Set()
     }
   },
 };
