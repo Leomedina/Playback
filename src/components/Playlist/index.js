@@ -3,7 +3,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import PodcastSlot from 'components/PodcastSlot/';
 
 function AvailablePlaylist({ meta, color, podcasts }) {
-  const podcastIds = Array.from(meta.podcastIds);
+  const podcastIds = meta.podcastIds;
 
   return (
     <Droppable droppableId={meta.id}>

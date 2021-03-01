@@ -45,11 +45,11 @@ export const multipleColumnRearrange = (action, state) => {
   };
 };
 
-export const upUpdatedIdList = (ids, state) => {
-  const inQueueMemory = state.columns.savedQueue.podcastIds;
-  const newAvailableIds = new Set();
+export const upUpdatedIdList = (ids) => {
+  const inQueueMemory = JSON.parse(window.localStorage.getItem("savedQueue")) || [];
+  const newAvailableIds = []
   for (let id of ids) {
-    if (!inQueueMemory.has(id)) newAvailableIds.add(id);
+    if (!inQueueMemory.includes(id)) newAvailableIds.push(id);
   };
   return newAvailableIds;
 };
@@ -63,6 +63,11 @@ export const makeAvailableList = (podcasts) => {
   return newList;
 };
 
+export const updateLocalStorage = (ids) => {
+  localStorage.clear();
+  localStorage.setItem("savedQueue", JSON.stringify(ids));
+  return 1;
+};
 
 //Function to create unique ids based on the location of the podcast.
 //This allows me to check if there're any duplicates or if the podcast is already in my saved queue.
