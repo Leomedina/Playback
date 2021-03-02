@@ -28,13 +28,11 @@ function Index() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="App p-4 lg:flex">
+      <div className="App py-4 px-12 lg:flex">
         <Playlist
-          flex="1"
           meta={available}
           podcasts={podcasts} />
         <Playlist
-          flex="2"
           meta={savedQueue}
           podcasts={podcasts} />
       </div>

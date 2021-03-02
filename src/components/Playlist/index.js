@@ -2,20 +2,20 @@ import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import PodcastCard from 'components/PodcastCard';
 
-function AvailablePlaylist({ meta, color, podcasts }) {
+function AvailablePlaylist({ meta, flex, podcasts }) {
   const podcastIds = meta.podcastIds;
 
   return (
     <Droppable droppableId={meta.id}>
       {(provided) => (
-        <div
+        <section
           {...provided.droppableProps}
           ref={provided.innerRef}
-          className="p-5">
+          className="p-5 flex-1">
           <h1 className="text-2xl font-bold pb-2">{meta.name}</h1>
           {podcastIds.map((id, index) => <PodcastCard key={id} id={id} podcast={podcasts[id]} index={index} />)}
           {provided.placeholder}
-        </div>
+        </section>
       )}
     </Droppable>
   );

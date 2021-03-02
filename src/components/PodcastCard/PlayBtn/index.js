@@ -1,11 +1,11 @@
 import React from 'react';
 import PodcastMeta from 'components/PodcastCard/PlayBtn';
 
-function InnerCard({ podcast }) {
+function InnerCard() {
   return (
-      <div className="px-6 m-auto">
-        PLAYBUTTON
-      </div>
+    <div className="px-6 content-end my-auto bg-green-500">
+      PLAYBUTTON
+    </div>
   );
 };
 

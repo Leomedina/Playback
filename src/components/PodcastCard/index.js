@@ -7,14 +7,14 @@ function PodcastCard({ id, podcast, index }) {
   return (
     <Draggable draggableId={id} index={index}>
       {(provided) => (
-        <section
+        <article
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className={`py-4 mb-4 h-36 flex justify-between bg-blue-100 shadow rounded-lg`}>
+          className={`py-4 mb-4 h-28 flex justify-between bg-gray-100 shadow rounded-lg`}>
           <CardMeta podcast={podcast} />
           <PlayBtn />
-        </section>
+        </article>
       )}
     </Draggable>
   );
