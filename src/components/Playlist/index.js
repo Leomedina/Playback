@@ -1,6 +1,6 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
-import PodcastSlot from 'components/PodcastSlot/';
+import PodcastCard from 'components/PodcastCard';
 
 function AvailablePlaylist({ meta, color, podcasts }) {
   const podcastIds = meta.podcastIds;
@@ -11,9 +11,9 @@ function AvailablePlaylist({ meta, color, podcasts }) {
         <div
           {...provided.droppableProps}
           ref={provided.innerRef}
-          className={`w-full p-5`}>
+          className="p-5">
           <h1 className="text-2xl font-bold pb-2">{meta.name}</h1>
-          {podcastIds.map((id, index) => <PodcastSlot key={id} id={id} podcast={podcasts[id]} index={index} />)}
+          {podcastIds.map((id, index) => <PodcastCard key={id} id={id} podcast={podcasts[id]} index={index} />)}
           {provided.placeholder}
         </div>
       )}

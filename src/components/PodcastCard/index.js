@@ -1,0 +1,23 @@
+import React from 'react';
+import { Draggable } from 'react-beautiful-dnd';
+import CardMeta from 'components/PodcastCard/PodcastMeta';
+import PlayBtn from 'components/PodcastCard/PlayBtn'
+
+function PodcastCard({ id, podcast, index }) {
+  return (
+    <Draggable draggableId={id} index={index}>
+      {(provided) => (
+        <section
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          className={`py-4 mb-4 h-36 flex justify-between bg-blue-100 shadow rounded-lg`}>
+          <CardMeta podcast={podcast} />
+          <PlayBtn />
+        </section>
+      )}
+    </Draggable>
+  );
+};
+
+export default PodcastCard;
