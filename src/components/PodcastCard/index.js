@@ -3,7 +3,9 @@ import { Draggable } from 'react-beautiful-dnd';
 import CardMeta from 'components/PodcastCard/PodcastMeta';
 import PlayBtn from 'components/PodcastCard/PlayBtn'
 
-function PodcastCard({ id, podcast, index }) {
+
+function PodcastCard({ id, podcast, index, order }) {
+  
   return (
     <Draggable draggableId={id} index={index}>
       {(provided) => (
@@ -11,7 +13,7 @@ function PodcastCard({ id, podcast, index }) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className={`py-4 mb-4 h-28 flex justify-between bg-gray-100 shadow rounded-lg`}>
+          className={`py-4 mb-4 h-28 flex justify-between bg-gray-100 shadow-lg rounded-xl`}>
           <CardMeta podcast={podcast} />
           <PlayBtn />
         </article>
