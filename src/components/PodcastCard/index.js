@@ -13,7 +13,7 @@ function PodcastCard({ id, podcast, index, order }) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className={`py-4 mb-4 h-28 flex justify-between bg-gray-100 shadow-lg rounded-xl`}>
+          className={`py-4 mb-4 h-28 flex justify-between bg-white shadow rounded-lg`}>
           <CardMeta podcast={podcast} />
           <PlayBtn />
         </article>

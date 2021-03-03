@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//Note here: I tried to truncate the text using CSS but I couldn't get it to elegantly work using JS for now.
 function PodcastMeta({ podcast }) {
   const imageLink = podcast.image || "https://i.imgur.com/L2jJdj9.png";
   const title = podcast.title.length > 35 ? podcast.title.slice(0, 30) + "..." : podcast.title;
@@ -9,7 +9,7 @@ function PodcastMeta({ podcast }) {
   return (
     <div className={`flex px-6 justify-start`}>
       <img
-        className="w-20 h-20 mr-6 hidden md:block rounded-full object-center object-cover m-auto"
+        className="w-20 h-20 mr-6 hidden md:block rounded-3xl object-center object-cover m-auto"
         src={imageLink} alt="" width="384" height="512" />
       <div className="text-left">
         <h1 className="font-semibold text-s md:text-base">{title}</h1>

@@ -28,7 +28,7 @@ function Index() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="App py-4 px-4 md:px-12 flex flex-col-reverse lg:flex-row">
+      <div className="App py-4 px-4 md:px-12 flex flex-col-reverse xl:flex-row bg-gray-100">
         <Playlist
           meta={available}
           podcasts={podcasts} />

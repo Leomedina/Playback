@@ -12,7 +12,7 @@ function AvailablePlaylist({ meta, podcasts }) {
           {...provided.droppableProps}
           ref={provided.innerRef}
           className="p-5 flex-1">
-          <h1 className="text-3xl font-bold pb-2">{meta.name}</h1>
+          <h1 className="text-4xl uppercase font-bold pb-4">{meta.name}</h1>
           {podcastIds.map((id, index) => <PodcastCard key={id} id={id} podcast={podcasts[id]} index={index} />)}
           {provided.placeholder}
         </section>
