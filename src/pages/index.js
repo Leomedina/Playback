@@ -1,19 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Playlist from 'components/Playlist';
 import { rearrangePods, getPodsFromAPI } from 'reducers/actions';
 import { updateLocalStorage } from 'utilities/localStorageUtils';
+import globalAudio from 'utilities/globalAudio';
 
 function Index() {
   const { available, savedQueue } = useSelector(store => store.columns);
   const { podcasts } = useSelector(store => store);
   const dispatch = useDispatch();
+  let audios;
 
   //Get Pods from API on mount
   useEffect(() => {
     dispatch(getPodsFromAPI());
+
   }, [dispatch]);
+
+
+  useEffect(() => {
+    audios = globalAudio(podcasts);
+  }, [podcasts])
 
 
   //Handle Drag and Drop

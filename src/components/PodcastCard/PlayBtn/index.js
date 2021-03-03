@@ -1,14 +1,11 @@
 import React from 'react';
-import AudioElement from 'components/PodcastCard/PlayBtn/AudioElement';
 import playBtn from 'assets/images/play.png';
 import pauseBtn from 'assets/images/pause.png';
 
-function PlayBtn({ toggleAudio, isPlaying, id, audioElement }) {
-  const buttonId = `btn-${id}`;
-  console.log(audioElement);
+function PlayBtn({ toggleAudio, isPlaying }) {
   return (
     <div className="px-10 content-end my-auto">
-      <button onClick={toggleAudio} className="focus:outline-none" id={buttonId}>
+      <button onClick={toggleAudio} className="focus:outline-none">
         {isPlaying ?
           <img
             className="w-8 h-8 object-center object-cover m-auto"
@@ -16,7 +13,6 @@ function PlayBtn({ toggleAudio, isPlaying, id, audioElement }) {
           <img
             className="w-8 h-8 object-center object-cover m-auto"
             src={playBtn} alt="" width="384" height="512" />}
-        <AudioElement audioEl={audioElement} buttonId={buttonId} />
       </button>
     </div>
   );
