@@ -20,18 +20,18 @@
 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-These app is build og 
+Use the following commands to install dependencies and run the app locally. 
 
 ### Installing Local
 After you clone the repository, run the following command inside the app directory.
 
 
-Install Dependencies:
+Install dependencies:
 ```
 npm install
 ```
 
-Start a local server run the app
+Deploy Locally
 ```
 npm start
 ```
@@ -51,7 +51,7 @@ If you're trying to hire me and want to assess my technical ability or if you wa
 ## ☕ Stuff that needs work <a name = "bugs"></a>
 - Text is truncated via JS and not CSS
 - Need to purge unused CSS from Tailwind's output
-- No Tests Written
+- No tests written
   - Ideally I'd write them in Jest
 - General refactor for better legibility
-- Maybe Typescript refactor one day? I hear Typescript helps with unexpected bugs.
+- Maybe Typescript refactor one day? I hear it helps with unexpected bugs.
