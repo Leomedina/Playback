@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DEFAULT, REARRANGE_PODS, LOAD_PODCASTS } from 'reducers/actionTypes';
+import { DEFAULT, REARRANGE_PODS, LOAD_PODCASTS, SET_CURR_PLAYING } from 'reducers/actionTypes';
 
 export const rearrangePods = function (podId, source, destination) {
   return {
@@ -25,6 +25,15 @@ export const defaultBehavior = function (description) {
     payload: { description }
   };
 };
+
+export const setCurrPlaying = function (id) {
+  return {
+    type: SET_CURR_PLAYING,
+    payload: {
+      id
+    }
+  }
+}
 
 //Thunks actions creators - allows for async API calls
 

@@ -13,7 +13,13 @@ function AvailablePlaylist({ meta, podcasts }) {
           ref={provided.innerRef}
           className="p-5 flex-1">
           <h1 className="text-4xl uppercase font-bold pb-4">{meta.name}</h1>
-          {podcastIds.map((id, index) => <PodcastCard key={id} id={id} podcast={podcasts[id]} index={index} />)}
+          {podcastIds.map((id, index) => (
+            <PodcastCard
+              key={id}
+              id={id}
+              podcast={podcasts[id]}
+              index={index} />
+          ))}
           {provided.placeholder}
         </section>
       )}

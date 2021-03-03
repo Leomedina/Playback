@@ -1,5 +1,6 @@
-import { REARRANGE_PODS, LOAD_PODCASTS } from 'reducers/actionTypes';
+import { REARRANGE_PODS, LOAD_PODCASTS, SET_CURR_PLAYING } from 'reducers/actionTypes';
 import INITIAL_STATE from 'reducers/initialData';
+import { getPodcastAudios } from 'utilities/audioUtils';
 import {
   singleColumnRearrange, upUpdatedIdList,
   multipleColumnRearrange, makeAvailableList
@@ -7,10 +8,19 @@ import {
 
 function rootReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case SET_CURR_PLAYING:
+      return {
+        ...state,
+        player: {
+          ...state.player,
+          currentlyPlaying: action.payload.id
+        }
+      };
     case LOAD_PODCASTS:
       const newPodcastList = makeAvailableList(action.payload, state);
       const newAvailableList = upUpdatedIdList(Object.keys(newPodcastList), state);
       const newQueueList = JSON.parse(localStorage.getItem("savedQueue")) || [];
+      const newPodcastAudios = getPodcastAudios(newPodcastList);
       return {
         ...state,
         podcasts: { ...newPodcastList },
@@ -24,6 +34,10 @@ function rootReducer(state = INITIAL_STATE, action) {
             ...state.columns.savedQueue,
             podcastIds: newQueueList
           }
+        },
+        player: {
+          ...state.player,
+          podcastAudios: newPodcastAudios
         }
       };
     case REARRANGE_PODS:

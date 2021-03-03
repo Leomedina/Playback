@@ -16,6 +16,10 @@ const INITIAL_STATE = {
       podcastIds: []
     }
   },
+  player: {
+    currentlyPlaying: null,
+    podcastAudios: {}
+  }
 };
 
 export default INITIAL_STATE;
